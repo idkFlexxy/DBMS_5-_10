@@ -1,0 +1,31 @@
+create table pro(pid number(10) primary key,name varchar2(20) not null,price number(8,2));
+
+create table pur(po number(10)primary key, product_id number(10) references pro(pid),qty number(5));
+
+desc pro;
+desc pur;
+insert into pro(pid,name,price)values(10,'printer',20000);
+insert into pro(pid,name,price)values(20,'keyboard',20000);
+insert into pro(pid,name,price)values(30,'monitor',15000);
+insert into pro(pid,name,price)values(40,'table',25000);
+insert into pro(pid,name,price)values(50,'scanner',14000);
+
+insert into pur(po,product_id,qty)values(101,10,25);
+insert into pur(po,product_id,qty)values(102,40,20);
+insert into pur(po,product_id,qty)values(107,30,40);
+insert into pur(po,product_id,qty)values(104,40,50);
+insert into pur(po,product_id,qty)values(105,40,10);
+
+select * from pro;
+select * from pur;
+
+update pro set name='camera' where pid=40;
+select * from pro;
+
+delete from pro where pid=50;
+select * from pro;
+
+insert into pro(pid,name,price)values(50,'mobile',35000);
+insert into pro(pid,name,price)values(60,'laptop',70000);
+commit;
+select*from pro;
