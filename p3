@@ -1,0 +1,25 @@
+create table lib(bid varchar2(8) primary key,title varchar2(20)not null, author varchar2(20),publi varchar2(20),yop number(4));
+
+alter table lib rename to library;
+desc library;
+
+alter table library add price number(8,2)not null;
+desc library;
+
+alter table library drop column author cascade constraints;
+desc library;
+
+alter table library rename column bid to bookid;
+desc library;
+
+alter table library modify yop varchar2(15);
+desc library;
+
+insert into library values('sp001','dbms','skyward publishers','2022',300);
+desc library;
+
+truncate table library;
+desc library;
+
+Drop table library;
+desclibrary;
